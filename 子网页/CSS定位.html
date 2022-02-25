@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS定位</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <nav>
+        <h2>书签</h2>
+        <ul>
+            <li> <a href="#position" class="link">定位简介</a></li>
+            <li> <a href="#static" class="link">static静态定位</a></li>
+            <li> <a href="#relative" class="link">relative相对定位</a></li>
+            <li> <a href="#absolute" class="link">absolute绝对定位</a></li>
+            <li> <a href="#fixed" class="link">fixed固定定位</a></li>
+            <li> <a href="#sticky" class="link">sticky定位</a></li>
+            <li> <a href="#zindex" class="link">定位叠放次序</a></li>
+            <li> <a href="#ex" class="link">定位扩展</a></li>
+        </ul>
+    </nav>
+    <article class="main w">
+        <h3 id="position top">定位简介</h3>
+        <p>定位：将盒子定在某一个位置，定位也是在摆放盒子，按照定位的方式移动盒子</p>
+        <p>定位=定位模式+边偏移，定位模式用于指定一个元素在文档中的定位方式，边偏移则决定了该元素的最终位置</p>
+        <h4>定位模式</h4>
+        <p>定位模式通过position属性来设置，通常有以下四个值</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>属性值</th>
+                    <th>语义</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>static</td>
+                    <td>静态定位</td>
+                </tr>
+                <tr>
+                    <td>relative</td>
+                    <td>相对定位</td>
+                </tr>
+                <tr>
+                    <td>absolute</td>
+                    <td>绝对定位</td>
+                </tr>
+                <tr>
+                    <td>fixed</td>
+                    <td>固定定位</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>边偏移</h4>
+        <p>边偏移就是定位的盒子移动到最终位置，有top、bottom、left和right四个属性</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>边偏移属性</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>top</td>
+                    <td>顶端偏移量，定义元素相对于其父元素上边线的距离</td>
+                </tr>
+                <tr>
+                    <td>bottom</td>
+                    <td>底部偏移量，定义元素相对于其父元素下边线的距离</td>
+                </tr>
+                <tr>
+                    <td>left</td>
+                    <td>左侧偏移量，定义元素相对于其父元素左边线的距离</td>
+                </tr>
+                <tr>
+                    <td>right</td>
+                    <td>右侧偏移量，定义元素相对于其父元素右边线的距离</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>注意：只有定位盒子能使用这几个属性，标准流不能用</p>
+        <h3 id="static">static静态定位</h3>
+        <p>静态定位是元素默认的定位方式，无定位的意思</p>
+        <ul>
+            <li>静态定位按照标准流特性摆放位置，没有边偏移</li>
+            <li>静态定位在布局时很少使用</li>
+        </ul>
+        <h3 id="relative">relative相对定位</h3>
+        <p>相对定位是元素在移动位置的时候，是相对于它原来的位置来说的</p>
+        <p>相对定位的特点：</p>
+        <ol>
+            <li>相对于原来的位置移动</li>
+            <li>原来在标准流的位置继续占有，后面的盒子仍然以标准流的方式对待（不脱标）</li>
+        </ol>
+        <h3 id="absolute">absolute绝对定位</h3>
+        <p>绝对定位是元素在移动位置的时候，相对于祖先元素说的</p>
+        <p>绝对定位的特点：</p>
+        <ol>
+            <li>如果没有祖先元素或者祖先元素没有定位，则以浏览器为准定位(Document文档)</li>
+            <li>如果祖先元素有定位，则以最近一级的<strong>有定位</strong>祖先元素为参考点移动位置</li>
+            <li>绝对定位不再占有原先的位置（脱标）</li>
+        </ol>
+        <h4>子绝父相</h4>
+        <p>含义：子级使用绝对定位，父级需要相对定位</p>
+        <p>子级用绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子</p>
+        <p>父盒子需要加定位限制子盒子在父盒子内显示，同时父盒子需要占有位置，所以父亲只能是相对定位</p>
+        <h3 id="fixed">fixed固定定位</h3>
+        <p>固定定位是元素固定于浏览器可视区的位置，主要使用场景：可以在浏览器页面滚动时元素的位置不会改变</p>
+        <p>固定定位的特点：</p>
+        <ol>
+            <li>以浏览器的可视窗口为参照点移动元素，跟父元素没有任何关系，不随滚动条的滚动而滚动</li>
+            <li>固定定位不占有原来的位置，固定定位也是脱标的，也可以看作是一种特殊的绝对定位</li>
+        </ol>
+        <h5>固定定位技巧：固定在版心的右侧位置</h5>
+        <p>让固定定位的盒子left: 50%;到浏览器可视区的一半位置，让固定定位的盒子margin-left设置为版心宽度的一半距离</p>
+        <h3 id="sticky">sticky粘性定位</h3>
+        <p>粘性定位可以被认为是相对定位和固定定位的混合</p>
+        <p>粘性定位的特点：</p>
+        <ol>
+            <li>以浏览器的可视窗口为参照点移动元素（固定定位的特点）</li>
+            <li>粘性定位占有原先的位置（相对定位特点）</li>
+            <li>必须添加top、left、right、bottom其中一个才有效</li>
+        </ol>
+        <h3 id="zindex">定位叠放次序z-index</h3>
+        <p>在使用定位布局时，可能会出现盒子重叠的情况，此时，可以使用z-index来控制盒子的前后次序(z轴)</p>
+        <p>数值可以是正整数、负整数或0，后面不带单位，默认是auto，数值越大，盒子越靠上</p>
+        <p>如果属性值相同，按照书写顺序，写到更后面的放在更上面</p>
+        <p>只有定位的盒子才有z-index属性</p>
+        <h3 id="ex">定位扩展</h3>
+        <h4>绝对定位的盒子居中</h4>
+        <p>加了绝对定位的盒子不能通过margin: 0 auto水平居中，可通过以下两行实现</p>
+        <p>left: 50%;让盒子的左侧移动到父级元素的水平中心位置margin-left: -100px;让盒子向左移动自身宽度的一半</p>
+        <h4>定位的特性</h4>
+        <ol>
+            <li>行内元素添加绝对或者固定定位后可以直接设置高度和宽度</li>
+            <li>块级元素添加绝对或者固定定位，如果不给宽度或者高度，默认大小是内容的大小</li>
+        </ol>
+        <h4>脱标盒子不会触发外边距塌陷</h4>
+        <p>浮动元素、绝对定位（固定定位）元素都不会触发外边距合并的问题</p>
+        <h4>绝对定位（固定定位）会完全压住盒子</h4>
+        <p>浮动元素只会压住标准流的盒子，并不会压住标准流盒子里面的文字(图片)</p>
+        <p>但是绝对定位（固定定位）会压住下面标准流的所有内容</p>
+        <p>浮动之所以不会压住文字，是因为浮动产生的目的最初是为了做文字环绕效果，文字会围绕浮动元素</p>
+        <div id="bottom"></div>
+    </article>
+    <aside class="footer">
+        <a href="#top"></a>
+        <a href="#bottom"></a>
+    </aside>
+</body>
+
+</html>

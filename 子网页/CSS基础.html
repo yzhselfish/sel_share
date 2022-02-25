@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS基础</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <nav>
+        <h2>书签</h2>
+        <ul>
+            <li> <a href="#intro" class="link">CSS简介</a></li>
+            <li> <a href="#gram" class="link">CSS语法规范</a></li>
+            <li> <a href="#selec" class="link">CSS选择器</a></li>
+            <li> <a href="#font" class="link">CSS字体属性</a></li>
+            <li> <a href="#text" class="link">CSS文本属性</a></li>
+            <li> <a href="#lead" class="link">CSS的引入方式</a></li>
+            <li> <a href="#chrome" class="link">Chrome调试工具</a></li>
+        </ul>
+    </nav>
+    <article class="main w">
+        <h3 id="intro top">CSS简介</h3>
+        <p>CSS（层叠样式表的简称 Cascading Style Sheets）主要用于美化网页，布局页面，CSS也是一种标记语言</p>
+        <p>主要设置HTML页面的文本内容、图片的外形以及版面的布局和外观显示样式</p>
+        <h3 id="gram">CSS语法规范</h3>
+        <p>CSS由两个主要的部分构成，选择器以及一条或多条声明</p>
+        <p>CSS主要写在head里面最后一个，style里面</p>
+        <p>属性和属性值以“键值对”的形式出现，之间用:分割</p>
+        <p>比如修改p标签可以写p{样式}，改颜色在大括号里面写color:颜色;，改字体大小可以写font-size:多少px（像素）</p>
+        <h3 id="selec">CSS选择器</h3>
+        <p>选择器就是根据不同需求把不同的标签选出来</p>
+        <p>选择器分为<strong>基础选择器</strong>和<strong>复合选择器</strong>两个大类</p>
+        <h4>基础选择器</h4>
+        <p>基础选择器是由单个选择器组成的</p>
+        <p>基础选择器又包括：标签选择器、类选择器、id选择器和通配符选择器</p>
+        <h5>标签选择器</h5>
+        <ul>
+            <li>标签选择器就是用HTML标签名称作为选择器，为某一类标签指定统一的CSS样式</li>
+            <li>标签选择器的优点是快速为同类型标签统一设置样式，缺点不能差异化样式，只能选择全部当前标签</li>
+        </ul>
+        <h5>类选择器</h5>
+        <ul>
+            <li>如果想要差异化选择不同的标签，单独选择几个可以使用类选择器，开发比较常用</li>
+            <li>格式为.类名{样式}，将所有包含类名的都改样式，用class属性来调用class类，起名不能为标签的名字，比如.p就是违法的一个类名，类名中间可以加-</li>
+            <li>不要使用纯数字、中文命名，尽量使用英文字母来表示，命名要有意义</li>
+            <li>常用的类命名规则，头部header，尾footer，导航栏nav</li>
+            <li>我们还可以给一个标签指定多个类名，在class属性中写多个类，中间用空格分开</li>
+            <li>多类名的使用场景，把一些标签元素相同的样式放到一个类里面，标签都可以调用这个公共类，然后调用自己独有的类，修改非常方便</li>
+        </ul>
+        <h5>id选择器</h5>
+        <ul>
+            <li>id选择器为标有特定id的HTML元素指定特定的样式，以id属性来设置id选择器，以#定义#id名{样式}</li>
+            <li>id和类最大的区别是：只能调用一次，别人不能使用，类选择器可以多次使用，一般和js搭配</li>
+        </ul>
+        <h5>通配符选择器</h5>
+        <ul>
+            <li>通配符选择器使用*定义，选取页面中的所有元素（标签）</li>
+            <li>通配符选择器不需要调用，自动就给所有的元素使用样式</li>
+            <li>在特殊场景下会使用，比如清除所有元素标签的内外边距</li>
+        </ul>
+        <h3 id="font">CSS字体属性</h3>
+        <p>用于定义字体系列、大小、粗细和文字样式（如斜体）</p>
+        <p>使用font-family属性定义文本的字体系列，可以使用中文，建议使用英语，兼容性更好</p>
+        <p>可以写多个字体，中间用,分割，如果用户电脑没有第一个字体，依次使用剩下的字体，如果都找不到会用电脑默认的字体</p>
+        <p>字体名称可以不带引号，但是如果字体里面包含空格，最好用引号括起来</p>
+        <p>设置页面中所有的字体，可以直接写body{}，这属于标签选择器</p>
+        <p>设置文字大小用font-size:多少px(像素)，谷歌浏览器默认为16px，不同浏览器默认不一致，我们尽量给一个明确大小，可以给body指定整个页面文字的大小</p>
+        <p>标题比较特殊，需要单独指定文字大小</p>
+        <p>用font-weight设置文本字体的粗细，norm为正常相当于number为400，bold是粗体number为700，bolder特粗体，lighter细体，也可以设置number(100-900)为具体数字不要加单位
+        </p>
+        <p>用font-style设置文本的风格，normal为默认值，斜体是italic，很少改为斜体，一般将斜体改成不倾斜的字体</p>
+        <p>复合属性可以节约代码，必须严格按照语法格式中的顺序书写，不能更换顺序，各个属性之间以空格隔开</p>
+        <p>例如可以一次性设置font:font-style font-weight font-size/line-height
+            font-family，不需要的属性可以省略，但是必须保留font-size和font-family这两个属性，否则font属性将不起作用</p>
+        <h3 id="text">CSS文本属性</h3>
+        <p>CSS文本属性可定义文本的外观，比如文本的颜色、对齐文本、装饰文本、文本缩进、行间距等</p>
+        <p>color属性用于定义文本颜色，颜色有三种表示：预定义的颜色red、green；十六进制#FF0000；RGB代码rgb(255,0,0)或者rgb(100%,0%,0%)开发中最常用十六进制</p>
+        <p>text-align属性用于设置元素内文本内容的水平对齐方式，center居中，left左对齐也是默认值，right右对齐,是在这个元素盒子的左边、右边</p>
+        <p>text-decoration属性规定添加到文本的修饰，可以给文本添加下划线、删除线、上划线等，默认为none没有装饰线用于去掉a标签的下划线，underline下划线，a标签自带下划线，overline上划线（几乎不用），line-through删除线
+        </p>
+        <p>text-indent属性用来指定文本的第一行的缩进，也就是段落首行缩进，也可以取负值，单位不仅可以用px像素，也可以使用em相对单位，是当前元素一个文字的大小，如果当前元素没有设置大小，则会按照父元素的1个文字大小
+        </p>
+        <p>line-height属性用于设置行间距，控制行与行之间的距离，行间距包含上间距、文本高度和下间距三个部分</p>
+        <h3 id="lead">CSS的引入方式</h3>
+        <p>按照CSS样式书写的位置（也就是引入的方式），CSS样式表可以分为三大类</p>
+        <ol>
+            <li>行内样式表（行内式）</li>
+            <li>内部样式表（嵌入式）</li>
+            <li>外部样式表（链接式）</li>
+        </ol>
+        <h4>行内样式表</h4>
+        <ul>
+            <li>行内样式表（内联样式表）是在元素标签内部的style属性中设定CSS样式，适合于修改简单样式，少量修改</li>
+            <li>比如&lt;div style="color: red;font-size: 12px;"&gt;只会控制当前标签的样式</li>
+        </ul>
+        <h4>内部样式表</h4>
+        <ul>
+            <li>内部样式表是写到html页面内部，就是将所有CSS代码抽取出来，单独放在一个&lt;style&gt;标签中，控制一个标签</li>
+            <li>&lt;style&gt;标签理论上可以放在HTML文档的任何地方，但一般会放在文档的&lt;head&gt;标签中</li>
+            <li>通过这种方式，可以方便控制当前整个页面中的元素样式设置，代码结构清晰，但是并没有实现结构与样式完全分离</li>
+        </ul>
+        <h4>外部样式表</h4>
+        <ul>
+            <li>实际开发用的都是外部样式表，适合于样式比较多的情况，核心是：样式单独写在CSS文件中，之后把CSS文件引入到HTML页面中使用，可以控制多个页面</li>
+            <li>引入外部样式表分为两步：新建一个后缀为css的样式文件，把CSS代码放在此文件；用link标签引入这个文件</li>
+            <li>link标签中的rel属性="stylesheet"，href=“路径”，rel定义当前文档与被链接文档之间的关系，用stylesheet表示被链接的文档是个样式表文件</li>
+        </ul>
+        <h3 id="chrome">Chrome调试工具</h3>
+        <ul>
+            <li>按F12或者右击选择检查打开调试工具，按住Ctrl滑动滚轮可以放大开发者工具代码大小</li>
+            <li>左边是HTML元素结构，右边是CSS样式，可以改动数值和查看颜色</li>
+            <li>Ctrl+0复原浏览器的大小，点击元素如果发现右侧没有样式引入，很有可能是类名或者样式引入错误</li>
+            <li>如果有样式，但是样式前面有黄色叹号提示，是样式属性书写错误</li>
+        </ul>
+        <div id="bottom"></div>
+    </article>
+    <aside class="footer">
+        <a href="#top"></a>
+        <a href="#bottom"></a>
+    </aside>
+</body>
+
+</html>

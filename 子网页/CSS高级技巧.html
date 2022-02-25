@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS高级技巧</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <nav>
+        <h2>书签</h2>
+        <ul>
+            <li><a href="#disp" class="link">元素的显示与隐藏</a></li>
+            <li><a href="#sprite" class="link">精灵图</a></li>
+            <li><a href="#ficon" class="link">字体图标</a></li>
+            <li><a href="#triangle" class="link">CSS三角</a></li>
+            <li><a href="#inface" class="link">CSS用户界面样式</a></li>
+            <li><a href="#verali" class="link">vertical-align属性</a></li>
+            <li><a href="#ellipsis" class="link">溢出文字省略号显示</a></li>
+            <li><a href="#skill" class="link">常见布局技巧</a></li>
+            <li><a href="#initial" class="link">CSS初始化</a></li>
+            <li><a href="#SEO">SEO优化</a></li>
+        </ul>
+    </nav>
+    <article class="main w">
+        <h3 id="disp top">元素的显示与隐藏</h3>
+        <p>本质：让一个元素在页面中隐藏或者显示出来</p>
+        <h4>display属性</h4>
+        <p>display属性用于设置一个元素应如何显示</p>
+        <p>display: none;隐藏对象，display: block;除了转化为块级元素之外，同时还有显示元素的意思</p>
+        <p>display隐藏元素后，不再占有原来的位置</p>
+        <h4>visibility 可见性</h4>
+        <p>visibility属性用于指定一个元素应可见还是隐藏</p>
+        <p>visibility: visible;元素可视visibility: hidden;元素隐藏</p>
+        <p>visibility隐藏元素后，继续占有原来的位置</p>
+        <h4>overflow溢出</h4>
+        <p>overflow属性指定如果内容溢出元素框（超过指定高度及宽度）时，会发生什么</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>属性值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>visible</td>
+                    <td>不剪切内容也不添加滚动条</td>
+                </tr>
+                <tr>
+                    <td>hidden</td>
+                    <td>不显示超过对象尺寸的内容，超出的部分隐藏</td>
+                </tr>
+                <tr>
+                    <td>scroll</td>
+                    <td>不管超出内容否，总是显示滚动条</td>
+                </tr>
+                <tr>
+                    <td>auto</td>
+                    <td>超出自动显示滚动条，不超出不显示滚动条</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>注意：如果有定位的盒子，请慎用overflow: hidden; 因为它会隐藏多余的部分</p>
+        <h3 id="sprite">精灵图</h3>
+        <h4>为什么需要精灵图？</h4>
+        <p>一个网页中往往会应用很多小的背景图像作为装饰，当网页中的图像过多时，服务器就会频繁地接受和发送请求图片，造成服务器请求压力过大，这将大大降低页面的加载速度。</p>
+        <p>因此，为了有效地减少服务器接受和发送请求的次数，提高页面的加载速度，出现了CSS精灵技术（也称为CSS Sprites、CSS雪碧）</p>
+        <p><strong>核心原理</strong>：将网页中的一些小背景图像整合到一张大图中，这样服务器只需要一次请求就可以了</p>
+        <p>精灵图的核心：主要针对于背景图片使用，把多个小背景图片整合到一张大图片中，使用background-position移动背景位置，移动的距离就是目标图片的x和y坐标，往上往左移动是负值</p>
+        <h3 id="ficon">字体图标</h3>
+        <p>使用场景：主要用于显示网页中通用、常用的一些小图标</p>
+        <p>最开始是由精灵图制作，但是精灵图也有许多缺点。图片文件比较大，图片放大缩小会失真，一旦图片制作完毕想要更换非常复杂</p>
+        <p>字体图标提供了一种方便高效的图标使用方式，展示的是图标，本质属于字体</p>
+        <h4>字体图标的优点</h4>
+        <ul>
+            <li>轻量级：图标字体比图像要小，一旦字体加载，图标很快能渲染出来，减少了服务器请求</li>
+            <li>灵活性：可以随意更改颜色、产生阴影、透明效果、旋转等</li>
+            <li>兼容性：几乎支持所有的浏览器，可以放心使用</li>
+        </ul>
+        <p>注意：字体图标不能替代精灵技术，只是对工作中图标部分技术的提升和优化</p>
+        <h4>字体图标的引入</h4>
+        <ol>
+            <li>把下载包里面的fonts文件夹放入页面根目录下</li>
+            <li>在CSS里面进行字体声明</li>
+            <li>在demo里面找到想要的图标，复制小框框</li>
+            <li>指定font-family与font-face里面一致</li>
+        </ol>
+        <h4>字体图标的追加</h4>
+        <p>把文件夹里面的selection.json重新上传，然后选中自己想要的新的图标，重新下载然后替换原来的文件即可</p>
+        <h3 id="triangle">CSS三角</h3>
+        <p>网页中常见的一些三角形，使用CSS直接画出来就可以，不必做成图片或者字体图标</p>
+        <p>把width和height都设为0px，设置上下左右四个边框，其中三个设置为透明色，即可得到对应方向的边框</p>
+        <p>为了照顾兼容性的问题，通常要加上line-height: 0;font-size: 0;</p>
+        <h3 id="inface">CSS用户界面样式</h3>
+        <p>所谓的界面样式，就是更改一些用户的操作样式，以便提高更好的用户体验</p>
+        <h4>鼠标样式 cursor</h4>
+        <p>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>属性值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>default</td>
+                    <td>默认</td>
+                </tr>
+                <tr>
+                    <td>pointer</td>
+                    <td>小手 一般用于链接上面</td>
+                </tr>
+                <tr>
+                    <td>move</td>
+                    <td>移动 十字架形状</td>
+                </tr>
+                <tr>
+                    <td>text</td>
+                    <td>文本 大I形状</td>
+                </tr>
+                <tr>
+                    <td>not-allowed</td>
+                    <td>禁止 圆圈中间一道斜杠</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>轮廓线 outline</h4>
+        <p>给表单添加outline: 0;或者outline: none;样式后，都可以去掉默认的蓝色边框</p>
+        <h4>防止拖拽文本域 resize</h4>
+        <p>默认情况下文本域右下角可以拖拽放缩，我们在属性中加上resize: none;防止拖拽</p>
+        <h3 id="verali">vertical-align属性</h3>
+        <p>使用场景：用于设置图片或者表单（行内块元素）和文字垂直对齐，用于设置一个元素的垂直对齐方式，只针对于行内元素或者行内块元素有效</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>属性值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>baseline</td>
+                    <td>默认，元素放置在父元素的基线上</td>
+                </tr>
+                <tr>
+                    <td>top</td>
+                    <td>把元素的顶端与行中最高元素的顶端对齐</td>
+                </tr>
+                <tr>
+                    <td>middle</td>
+                    <td>把此元素放置在父元素的中部</td>
+                </tr>
+                <tr>
+                    <td>bottom</td>
+                    <td>把元素的顶端与行中最低元素的顶端对齐</td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="../images/css-vertical-align.png" alt="">
+        <h4>解决图片底部默认空白缝隙问题</h4>
+        <p>图片底侧会有一个空白缝隙，原因是行内块元素会和文字的基线对齐</p>
+        <p>解决方法有以下两种：</p>
+        <ol>
+            <li>给图片添加vertical-align:middle|top|bottom等</li>
+            <li>把图片转化为块级元素display: block;</li>
+        </ol>
+        <h3 id="ellipsis">溢出文字省略号显示</h3>
+        <h4>单行文本溢出显示省略号</h4>
+        <ol>
+            <li>先强制一行内显示文本white-space: nowrap;（默认为normal 自动换行）</li>
+            <li>超出部分隐藏overflow: hidden;</li>
+            <li>文字用省略号替代超出的部分text-overflow: ellipsis;</li>
+        </ol>
+        <h4>多行文本溢出显示省略号</h4>
+        <p>多行文本溢出显示省略号有较大的兼容性问题，适合于webKit浏览器或移动端（移动端大部分是webkit内核）</p>
+        <ul class="code">
+            <li>overflow: hidden;</li>
+            <li>text-overflow: ellipsis;</li>
+            <li>/*弹性伸缩盒子模型显示*/</li>
+            <li>display: -webkit-box;</li>
+            <li>/*限制在一个块元素显示的文本的行数*/</li>
+            <li>-webkit-line-clamp: 2;</li>
+            <li>/*设置或检索伸缩盒对象的子元素的排列方式*/</li>
+            <li>-webkit-box-orient: vertical;</li>
+        </ul>
+        <p>更推荐让后台人员来做这个效果，后台人员可以设置显示多少个字，操作更简单</p>
+        <h3 id="skill">常见布局技巧</h3>
+        <h4>margin负值运用</h3>
+        <p>当有两个有边框的盒子接触放置时，会有边框叠加这样的问题，我们只需要给一个margin负值就可以解决这个问题</p>
+        <p>在鼠标经过某个盒子的时候，提高当前盒子的层级（如果没有定位，则加相对定位，如果有定位，则加z-index），相对定位会压住标准流</p>
+        <h4>文字围绕浮动元素</h4>
+        <p>我们可以将图片设置为浮动元素，然后浮动元素不会压住文字，虽然压住了盒子，但是文字会围绕图片</p>
+        <h4>行内块巧妙运用</h4>
+        <p>在设计上一页下一页翻页时，我们可以把页码用行内块元素来做，因为行内块可以设置宽度和高度，中间自带间距</p>
+        <h4>CSS三角强化</h4>
+        <p>如何做一个不等腰的直角三角形？</p>
+        <p>给不同方向不一样的宽度，代码如下：</p>
+        <ul class="code">
+            <li>width: 0;</li>
+            <li>height: 0;</li>
+            <li>border-color: transparent red transparent transparent</li>
+            <li>border-style: solid;</li>
+            <li>border-width: 22px 8px 0 0;</li>
+        </ul>
+        <h3 id="initial">CSS初始化</h3>
+        <p>不同浏览器对有些标签的默认值是不同的，为了消除不同浏览器对HTML文本呈现的差异，照顾浏览器的兼容，需要对CSS初始化</p>
+        <p>Unicode编码字体：把中文字体的名称用相应的Unicode编码来代替，这样就可以有效避免浏览器解释CSS代码时出现乱码的问题</p>
+        <p>比如：黑体\9ED1\4F53 宋体\5B8B\4F53 微软雅黑\5FAE\8F6F\96C5\9ED1,每一个\都是一个汉字</p>
+        <h3 id="SEO top">SEO优化</h3>
+        <p>SEO(Search Engine Optimization)为搜索引擎优化，是一种利用搜索引擎的规则提高网站在有关搜索引擎内自然排名的方式</p>
+        <p>SEO的目的是对网站进行深度的优化，从而帮助网站获取免费的流量，进而在搜索引擎上提升网站的排名，提高网站的知名度</p>
+        <p>页面必须有三个标签用来符合SEO优化</p>
+        <h5>1.title网站标题</h5>
+        <p>title具有不可替代性，是我们内页的第一个重要标签，是搜索引擎了解网页的入口和对网页主题归属的最佳判断点。</p>
+        <p>建议：网站名（产品名）-网站的介绍（尽量不要超过30个汉子）</p>
+        <h5>2.description网站说明</h5>
+        <p>简要说明我们网站主要是做什么的，description作为网站的总体业务和主题概括</p>
+        <h5>3.keywords关键字</h5>
+        <p>keywords是页面关键字，是搜索引擎的关注点之一，keywords最好限制为6~8个关键词，关键词之间用英文逗号隔开，采用关键词1,关键词2的形式</p>
+        <h4>LOGO SEO 优化</h4>
+        <ol>
+            <li>logo里面首先放一个h1标签，目的是提权</li>
+            <li>h1里面再放一个链接可以返回首页，把logo的背景图片给链接即可</li>
+            <li>为了让搜索引擎收录，链接里面需要放文字（网站名称），但是文字不要显示出来</li>
+            <li>最后给链接一个title属性，这样鼠标放到logo上就可以看到提示文字</li>
+        </ol>
+        <h5>隐藏文字的两种方法</h5>
+        <ul>
+            <li>方法一：text-indent移到盒子外面，然后overflow:hidden</li>
+            <li>方法二：给font-size设为0</li>
+        </ul>
+        <div id="bottom"></div>
+    </article>
+    <aside class="footer">
+        <a href="#top"></a>
+        <a href="#bottom"></a>
+    </aside>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    background-color: #f5f5f5;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.head {
+    color: skyblue;
+    font-family: "仿宋";
+    text-align: center;
+}
+.index {
+    color: deepskyblue;
+    font-size: 20px;
+}
+.link {
+    height: 25px;
+    line-height: 25px;
+    color: cornflowerblue;
+    display: block;
+    text-decoration: none;
+}
+.link:hover {
+    color: deepskyblue;
+}
+.part>div {
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?w78cva');
+    src:  url('fonts/icomoon.eot?w78cva#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.ttf?w78cva') format('truetype'),
+      url('fonts/icomoon.woff?w78cva') format('woff'),
+      url('fonts/icomoon.svg?w78cva#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}

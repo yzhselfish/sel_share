@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML标签</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <nav>
+        <h2>书签</h2>
+        <ul>
+            <li> <a href="#gram" class="link">HTML语法规范</a></li>
+            <li> <a href="#stru" class="link">HTML基本结构标签</a></li>
+            <li> <a href="#imp" class="link">HTML必需品</a></li>
+            <li> <a href="#usual" class="link">HTML常用标签</a></li>
+            <li> <a href="#note" class="link">HTML注释和特殊字符</a></li>
+        </ul>
+    </nav>
+    <article class="main w">
+        <h3 id="gram top">HTML语法规范</h3>
+        <ol>
+            <li>HTML标签是由尖括号包围的关键词，例如&lt;html&gt;</li>
+            <li>HTML标签通常是成对出现的，我们称为双标签，标签对里面第一个标签是开始标签，第二个标签是结束标签</li>
+            <li>有些特殊的标签必须是单个标签（极少情况），例如&lt;br /&gt;，我们称为单标签</li>
+        </ol>
+        <h4>标签关系</h4>
+        <p>双标签关系可以分为两类：包含关系和并列关系。包含关系就是一个标签在另一个标签里面，可以理解为父子关系。并列关系两个标签相平行，可以理解为兄弟关系</p>
+        <h3 id="stru">HTML基本结构标签</h3>
+        <p>每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容就是在这些基本标签上书写的</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>标签名</th>
+                    <th>定义</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>html</td>
+                    <td>HTML标签</td>
+                    <td>页面中最大的标签，我们称为根标签</td>
+                </tr>
+                <tr>
+                    <td>head</td>
+                    <td>文档的头部</td>
+                    <td>注意在head标签中我们必须要设置的标签是title</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>文档的标题</td>
+                    <td>让页面拥有一个属于自己的网页标题</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>文档的主体</td>
+                    <td>元素包含文档的所有内容，页面内容基本都是放到body里面</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>HTML文档的后缀名必须是.html或者.htm，浏览器的作用是读取HTML文档，并以网页的形式显示出它们</p>
+        <h3 id="imp">HTML必需品</h3>
+        <h4>文档类型声明标签</h4>
+        <p>&lt;!DOCTYPE&gt;文档类型声明，作用就是告诉浏览器使用哪种HTML版本来显示网页</p>
+        <p>&lt;!DOCTYPE html&gt;意思就是当前页面采取的是HTML5版本来显示网页</p>
+        <h5>注意</h5>
+        <ol>
+            <li>&lt;DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt;标签之前</li>
+            <li>&lt;DOCTYPE&gt;不是一个HTML标签，它就是文档类型声明标签</li>
+        </ol>
+        <h4>lang语言种类</h4>
+        <p>用来定义当前文档显示的语言，en定义语言为英语，zh-CN定义语言为中文，en就是表明当前网页是个英文网页</p>
+        <p>定义成en的文档也可以显示中文，定义成zh-CN的文档也可以显示英文</p>
+        <p>这个属性对于浏览器和搜索引擎（百度、谷歌）有作用，会提示你当前网页语言为xx是否转化为中文</p>
+        <h4>字符集</h4>
+        <p>字符集(Character set)是多个字符的集合，以便计算机能够识别和存储各种文字。在head标签内，通过meta标签的charset属性来规定HTML文档应该使用哪种字符编码</p>
+        <p>charset常用的值有:GB2312、BIG5、GBK和UTF-8，UTF-8也被称为万国码，基本包含了全世界所有国家需要用到的字符</p>
+        <p>上面语法是必须要写的代码，否则可能会引起乱码的情况，一般情况下，统一使用UTF-8编码</p>
+        <h3 id="usual">HTML常用标签</h3>
+        <h4>标签语义</h4>
+        <p>学习标签重点是记住每个标签的语义，简单理解就是指标签的含义，根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更加清晰</p>
+        <h4>标题标签 &lt;h1&gt;~&lt;h6&gt;</h4>
+        <p>为了使网页更具有语义化，我们经常会在页面中用到标题标签，HTML提供了6个等级的网页标题，即&lt;h1&gt;~&lt;h6&gt;</p>
+        <p>h是head的缩写，标签语义：作为标题使用，并且依据重要性递减。</p>
+        <h5>特点</h5>
+        <ol>
+            <li>加了标题的文字会自动加粗，字号也会依次变大</li>
+            <li>标题独占一行，是块元素</li>
+        </ol>
+        <h4>段落和换行标签</h4>
+        <p>在网页中，要把文字有条理地显示出来，就需要把这些文字分段显示。在HTML标签中，p标签用于定义段落，它可以把整个网页分成若干个段落</p>
+        <h5>特点</h5>
+        <ol>
+            <li>文本在一个段落中会根据浏览器窗口的大小自动换行</li>
+            <li>段落和段落之间有空隙</li>
+        </ol>
+        <p>在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才会自动换行。如果希望某段文字强制换行显示，需要用换行标签&lt;br /&gt; break的缩写，意为打断、换行</p>
+        <h5>特点</h5>
+        <ol>
+            <li>&lt;br /&gt;是个单标签</li>
+            <li>&lt;br /&gt;标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些垂直的间距</li>
+        </ol>
+        <h4>文本格式化标签</h4>
+        <p>在网页中，有时需要为文字设置<strong>粗体</strong>、<em>斜体</em>或<ins>下划线</ins>等效果，这是就需要用到HTML中的文本格式化标签，使文字以特殊的方式显示。标签语义：突出重要性，比普通文字更重要
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>语义</th>
+                    <th>标签</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>加粗</td>
+                    <td>strong或者b</td>
+                    <td>更推荐使用strong标签加粗 语义更强烈</td>
+                </tr>
+                <tr>
+                    <td>倾斜</td>
+                    <td>em或者i</td>
+                    <td>更推荐使用em标签倾斜 语义更强烈</td>
+                </tr>
+                <tr>
+                    <td>删除线</td>
+                    <td>del或者s</td>
+                    <td>更推荐使用del标签 语义更强烈</td>
+                </tr>
+                <tr>
+                    <td>下划线</td>
+                    <td>ins或者u</td>
+                    <td>更推荐使用ins标签 语义更强烈</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>&lt;div&gt;和&lt;span&gt;标签</h4>
+        <p>&lt;div&gt;和&lt;span&gt;是没有语义的，它们就是一个盒子，用来装内容的</p>
+        <p>div是division的缩写，表示分割、分区，span意为跨度、跨距</p>
+        <h5>特点</h5>
+        <ol>
+            <li>div标签用来布局，但是一行只能放一个div，是一个大盒子</li>
+            <li>span标签用来布局，一行上可以放多个span，是一个小盒子</li>
+        </ol>
+        <h4>图像标签和路径</h4>
+        <h5>图像标签</h5>
+        <p>在HTML标签中，img标签（image的缩写）用于定义HTML页面中的图像</p>
+        <p>src是img标签的必须属性，它用于指定图像文件的路径和文件名，属性就是属于某个标签的特性</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>属性</th>
+                    <th>属性值</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>src</td>
+                    <td>图片路径</td>
+                    <td>必须属性</td>
+                </tr>
+                <tr>
+                    <td>alt</td>
+                    <td>文本</td>
+                    <td>替换文本，图像不能正常显示时候转化为文字</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>文本</td>
+                    <td>提示文本，鼠标放到图像上显示的文字</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>像素</td>
+                    <td>设置图像的宽度</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>像素</td>
+                    <td>设置图像的高度</td>
+                </tr>
+                <tr>
+                    <td>border</td>
+                    <td>像素</td>
+                    <td>设置图像的边框粗细</td>
+                </tr>
+            </tbody>
+        </table>
+        <h6>注意</h6>
+        <ol>
+            <li>图像标签可以有多个属性，必须写在标签名的后面</li>
+            <li>属性之间不分前后顺序，标签名与属性、属性与属性之间均以空格分开</li>
+            <li>属性采取键值对的格式，即key="value"的格式，属性=“属性值”</li>
+        </ol>
+        <h5>路径</h5>
+        <p>路径可以分为相对路径和绝对路径</p>
+        <p>相对路径：以引用文件所在位置为参考基础而建立出的目录路径，就是图像相当于HTML页面的位置</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>相对路径分类</th>
+                    <th>符号</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>同一级路径</td>
+                    <td></td>
+                    <td>图像文件位于HTML文件同一级</td>
+                </tr>
+                <tr>
+                    <td>下一级路径</td>
+                    <td>/</td>
+                    <td>图像文件位于HTML文件下一级</td>
+                </tr>
+                <tr>
+                    <td>上一级路径</td>
+                    <td>../</td>
+                    <td>图像文件位于HTML文件上一级</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>绝对路径是指目录下的绝对位置，直接到达目标位置，通常是从盘符开始的路径，或者完整的网络地址</p>
+        <h6>目录文件夹和根目录</h6>
+        <p>目录文件夹就是普通文件夹，里面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等</p>
+        <p>根目录：打开目录文件夹的第一层就是根目录</p>
+        <h4>超链接标签</h4>
+        <p>a(anchor的缩写)标签用于定义超链接，作用是从一个页面链接到另一个页面</p>
+        <p>链接的语法格式&lt;a href="跳转目标" target="目标窗口的弹出方式"&gt;文本或图像 &lt;/a&gt;</p>
+        <ul>
+            <li>href属性用于指定链接目标的url地址，（必须属性）当为标签应用href属性时，它就具有了超链接的功能</li>
+            <li>target用于指定链接页面的打开方式，其中_self默认在自己页面打开，_blank为在新窗口中打开方式</li>
+        </ul>
+        <h5>链接分类</h5>
+        <ol>
+            <li>外部链接就是完整的url地址</li>
+            <li>内部链接是网站内部页面之间的相互链接，直接链接内部页面名称即可</li>
+            <li>空链接：如果当时没有明确的链接目标，可以让href="#"，点击这个链接不会到其他的网站</li>
+            <li>下载链接：如果href里面地址是一个文件或者压缩包，会下载这个文件</li>
+            <li>网页元素链接：在网页中的各种网页元素，如文本、图像、表格、音频、视频都可以添加超链接</li>
+            <li>锚点链接：我们点击链接，可以快速定位到页面中的某个位置。在href属性中设置属性值为#名字的形式，在目标位置标签，里面添加一个id属性=刚才的名字</li>
+        </ol>
+        <h3 id="note">HTML注释和特殊字符</h3>
+        <h4>注释</h4>
+        <p>如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签</p>
+        <p>HTML中的注释以"&lt;!--"开头，以"--&gt;"结束，快捷键为Ctrl+/</p>
+        <p>添加注释是为了更好地解释代码的能力，便于相关开发人员理解和阅读代码，程序是不会执行注释内容的</p>
+        <h4>特殊字符</h4>
+        <p>在HTML页面中，一些特殊的符号很难或者不方便直接使用，此时我们需要使用下面的字符来替代</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>特殊字符</th>
+                    <th>描述</th>
+                    <th>字符的代码</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>空格</td>
+                    <td>&+nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td>小于号</td>
+                    <td>&+lt;</td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td>大于号</td>
+                    <td>&+gt;</td>
+                </tr>
+                <tr>
+                    <td>&amp;</td>
+                    <td>和号</td>
+                    <td>&+amp;</td>
+                </tr>
+                <tr>
+                    <td>&yen;</td>
+                    <td>人民币</td>
+                    <td>&+yen;</td>
+                </tr>
+                <tr>
+                    <td>&copy;</td>
+                    <td>版权</td>
+                    <td>&+copy;</td>
+                </tr>
+                <tr>
+                    <td>&reg;</td>
+                    <td>注册商标</td>
+                    <td>&+reg;</td>
+                </tr>
+                <tr>
+                    <td>&deg;</td>
+                    <td>摄氏度</td>
+                    <td>&+deg;</td>
+                </tr>
+                <tr>
+                    <td>&plusmn;</td>
+                    <td>正负号</td>
+                    <td>&+plusmn;</td>
+                </tr>
+                <tr>
+                    <td>&times;</td>
+                    <td>乘号</td>
+                    <td>&+times;</td>
+                </tr>
+                <tr>
+                    <td>&divide;</td>
+                    <td>除号</td>
+                    <td>&+divide;</td>
+                </tr>
+                <tr>
+                    <td>&sup2;</td>
+                    <td>平方2</td>
+                    <td>&+sup2;</td>
+                </tr>
+                <tr>
+                    <td>&sup3;</td>
+                    <td>立方3</td>
+                    <td>&+sup3;</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="bottom"></div>
+    </article>
+    <aside class="footer">
+        <a href="#top"></a>
+        <a href="#bottom"></a>
+    </aside>
+</body>
+
+</html>
