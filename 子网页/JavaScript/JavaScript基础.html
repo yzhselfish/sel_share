@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript基础</title>
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../css/subpage.css">
+</head>
+<body>
+    <nav>
+        <h2>书签</h2>
+        <ul>
+            <li><a href="#var">变量</a></li>
+            <li><a href="#type">数据类型</a></li>
+            <li><a href="#tytrans">数据类型转换</a></li>
+            <li><a href="#iden">标识符、关键字、保留字</a></li>
+            <li><a href="#oper">运算符</a></li>
+        </ul>
+    </nav>
+    <article class="main w">
+        <h3 id="var top">变量</h3>
+        <p>本质：变量是程序在内存中申请的一块用来存放数据的空间</p>
+        <p>变量在使用时分为两步：1.声明变量 2.赋值</p>
+        <p>声明变量：var 变量名称</p>
+        <p>var是一个JS关键字，用来声明变量（variable）。使用该关键字声明变量后，计算机会自动为变量分配内存空间，我们通过变量名来访问内存中分配的空间</p>
+        <p>=用来把右边的值赋给左边的变量空间</p>
+        <p>变量的初始化：声明一个变量并赋值</p>
+        <p>更新变量：一个变量被重新赋值后，原有的值将会被覆盖，变量值会以最后一次赋的值为准</p>
+        <p>同时声明多个变量：只需要写一个var，多个变量名之间用英文逗号隔开</p>
+        <h4>声明变量特殊情况</h4>
+        <ul>
+            <li>只声明不赋值，结果是undefined</li>
+            <li>不声明不赋值直接使用会报错</li>
+            <li>不声明只赋值也是可以使用的</li>
+        </ul>
+        <h4>变量命名规范</h4>
+        <ul>
+            <li>由字母、数字、下划线、美元符号组成</li>
+            <li>严格区分大小写</li>
+            <li>不能以数字开头</li>
+            <li>不能是关键字、保留字</li>
+            <li>变量名需要有意义，遵循驼峰命名法（首字母小写，后面单词的首字母需要大写）</li>
+        </ul>
+        <h3 id="type">数据类型</h3>
+        <h4>为什么需要数据类型</h4>
+        <p>在计算机中，不同的数据所需占用的存储空间是不同的，为了便于把数据分成所需内存大小不同的数据，充分利用存储空间，于是定义了不同的数据类型</p>
+        <p>变量是用来存储值的所在处，它们由名字和数据类型，变量的数据类型决定了如何将代表这些值的位存储到计算机的内存中。JavaScript是一种弱类型或者动态语言，这意味着不用提前声明变量的类型，在程序运行过程中，类型会被自动确定</p>
+        <p>JavaScript拥有动态类型，同时也意味着相同的变量可以用作不同的类型</p>
+        <h4>数据类型的分类</h4>
+        <p>JS把数据类型分为两类：简单数据类型和复杂数据类型</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>简单数据类型</th>
+                    <th>说明</th>
+                    <th>默认值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Number</td>
+                    <td>数字型，包含整型值和浮点型</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Boolean</td>
+                    <td>布尔值类型，如true、false等价于1和0</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>字符串类型，字符串带引号</td>
+                    <td>""</td>
+                </tr>
+                <tr>
+                    <td>Undefined</td>
+                    <td>声明了变量但是没有给值</td>
+                    <td>undefined</td>
+                </tr>
+                <tr>
+                    <td>Null</td>
+                    <td>声明变量为空值</td>
+                    <td>null</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5>数字型进制</h5>
+        <p>常见进制有二进制、八进制、十进制和十六进制，在数字前面加上0表示为八进制，数字前面加上0x表示十六进制</p>
+        <h5>数字型的最值</h5>
+        <p>Number.MAX_VALUE最大值约为10的308次方，Number.MIN_VALUE最小值为5e-324</p>
+        <h5>数字型三个特殊值</h5>
+        <p>Infinity代表无穷大，-Infinity代表无穷小，NaN（Not a number）代表一个非数值</p>
+        <p>isNaN()用来判断一个变量是否非数字，如果是数字返回false，如果不是数字返回true</p>
+        <h4>字符串型 String</h4>
+        <p>字符串型可以是引号中的任意文本，语法为双引号和单引号，因为HTML标签里面的属性使用的是双引号，JS这里我们推荐使用单引号</p>
+        <h5>字符串引号嵌套</h5>
+        <p>JS可以使用单引号嵌套双引号或者用双引号嵌套单引号</p>
+        <h5>字符串转义符</h5>
+        <p>类似HTML里面的特殊字符，字符串中也有特殊字符，我们称之为转义符</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>转义符</th>
+                    <th>解释</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>\n</td>
+                    <td>换行，n是newline</td>
+                </tr>
+                <tr>
+                    <td>\\</td>
+                    <td>斜杠\</td>
+                </tr>
+                <tr>
+                    <td>\'</td>
+                    <td>单引号</td>
+                </tr>
+                <tr>
+                    <td>\"</td>
+                    <td>双引号</td>
+                </tr>
+                <tr>
+                    <td>\t</td>
+                    <td>tab缩进</td>
+                </tr>
+                <tr>
+                    <td>\b</td>
+                    <td>空格，b是blank</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5>字符串长度</h5>
+        <p>字符串是由若干字符组成的，这些字符的数量就是字符串的长度，通过字符串的length属性来获取字符串的长度</p>
+        <h5>字符串拼接</h5>
+        <p>多个字符串之间可以使用+进行拼接，拼接方式为字符串+任何类型=拼接之后的新字符串</p>
+        <h4>布尔型 Boolean</h4>
+        <p>布尔类型有两个值true和false，其中true表示真，false表示假，当进行运算时，true的值为1，false的值为0</p>
+        <h4>Undefined和Null</h4>
+        <p>一个声明后没有被赋值的变量会有一个默认值undefined，与字符串相加是字符串，与数字操作结果是NaN</p>
+        <p>一个声明变量给null值，里面存的值为空，与字符串相加是字符串，与数字操作一般可以当作0</p>
+        <h4>获取变量的数据类型</h4>
+        <p>typeof可以用来获取变量的数据类型</p>
+        <p>我们也可以通过浏览器的控制台来判断数据类型，数字为蓝紫色，字符串为黑色，布尔型为深蓝色，null和undefined为灰色</p>
+        <h3 id="tytrans">数据类型转换</h3>
+        <p>使用表单、prompt获取过来的数据默认是字符串类型的，此时就不能简单地进行加减运算，而需要转换变量的数据类型</p>
+        <p>数据类型转换就是把一种数据类型的变量转换成另外一种数据类型</p>
+        <h4>转换为字符串</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>方式</th>
+                    <th>说明</th>
+                    <th>案例</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>toString()</td>
+                    <td>转成字符串</td>
+                    <td>num.toString()</td>
+                </tr>
+                <tr>
+                    <td>String()强制转换</td>
+                    <td>转成字符串</td>
+                    <td>String(num)</td>
+                </tr>
+                <tr>
+                    <td>加号拼接字符串</td>
+                    <td>和字符串拼接的结果是字符串</td>
+                    <td>num+"字符串"</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>第三种加号拼接字符串比较常见，这种方式也称之为隐式转换</p>
+        <h4>转换为数字型</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>方式</th>
+                    <th>说明</th>
+                    <th>案例</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>parseInt(string)函数</td>
+                    <td>将string类型转成整数数值型（可用于取整直接截断，后面带有字符会直接截断，前面直接是字符会返回NaN）</td>
+                    <td>parseInt('78')</td>
+                </tr>
+                <tr>
+                    <td>parseFloat(string)函数</td>
+                    <td>将string类型转成浮点数值型（后面带有字符截断，前面带有字符返回NaN）</td>
+                    <td>parseFloat('78.21')</td>
+                </tr>
+                <tr>
+                    <td>Number()强制转换函数</td>
+                    <td>将string类型转成数值型</td>
+                    <td>Number('12')</td>
+                </tr>
+                <tr>
+                    <td>js隐式转换（- * /）</td>
+                    <td>利用算术运算隐式转换为数值型</td>
+                    <td>'12'-0</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>转换为布尔型</h4>
+        <p>Boolean()函数，代表空或者否定的值（''、0、NaN、null、undefined）会被转换为false，其他值都会返回true</p>
+        <h3 id="iden">标识符、关键字、保留字</h3>
+        <p>标识符：为变量、属性、函数、参数取的名字，标识符不能是关键字或保留字</p>
+        <p>关键字：JS本身已经使用了的字，不能再充当变量名或方法名，比如break、var、typeof等</p>
+        <p>保留字：实际上就是预留的“关键字”，现在虽然还不是关键字，但是未来可能会成为关键字，同样不能使用它们当变量名或者方法名，比如：boolean、byte、char、class、const、float、import等</p>
+        <h3 id="oper">运算符</h3>
+        <p>运算符（operator）也被称为操作符，是用于实现赋值、比较和执行算数运算等功能的符号</p>
+        <h4>算术运算符</h4>
+        <p>+ - * / %（取余数）用于执行两个变量或值的算术运算</p>
+        <h4>浮点数的精度问题</h4>
+        <p>浮点数值的最高精度是17位小数，但在进行算数计算时其精度远远不如整数，所以不要直接判断两个浮点数是否相等</p>
+        <h4>表达式和返回值</h4>
+        <p>表达式：由数字、运算符、变量等以能求得数值的有意义排列方法所得的组合</p>
+        <p>表达式最终都会有一个结果返回，称为返回值</p>
+        <h4>递增、递减运算符</h4>
+        <p>如果需要反复给数字变量添加或减去一，我们可以使用++和--运算符来完成</p>
+        <p>++和--放在变量前面，我们称之为前置递增（递减）运算符，放在变量后面，称之为后置递增（递减）运算符</p>
+        <p>前置先自增自减之后再返回值，后置先返回值之后再自增自减</p>
+        <h4>比较运算符</h4>
+        <p>两个数据进行比较时所使用的运算符，比较运算之后会返回一个布尔值作为比较运算的结果</p>
+        <p>&lt; &gt; &lt;= &gt;= ==值相等 !=不等 ===全等 !==不全等，要求值和数据类型都一致</p>
+        <p><strong>注意</strong>：==会默认转换数据类型，18 == '18'返回true</p>
+        <h4>逻辑运算符</h4>
+        <p>逻辑运算符是用来进行布尔值运算的运算符，返回值也是布尔值</p>
+        <p>&&逻辑与(and) ||逻辑或(or) !逻辑非(not)</p>
+        <p>&&两边都是true才返回true，否则返回false ||只要有一边是true就返回true !也叫做取反符，用来取一个布尔值相反的值</p>
+        <h5>短路运算（逻辑中断）</h5>
+        <p>短路运算：当有多个表达式，左边的表达式值可以确定结果时，就不再继续运算右边的表达式的值</p>
+        <div id="bottom"></div>
+    </article>
+    <aside class="footer">
+        <a href="#top"></a>
+        <a href="#bottom"></a>
+    </aside>
+</body>
+</html>
